@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="robots" content="noindex">
+  <title>Administrar disfraces | Concurso de disfraces de Halloween</title>
+  <link rel="icon" href="img/calabaza.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/admin.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="img/calabaza.svg" alt="" width="28" height="28">Concurso de disfraces</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="index.html">Disfraces</a>
+      <a href="subir.html">Subí el tuyo</a>
+    </nav>
+    <div class="cuenta" id="cuenta"></div>
+  </header>
+
+  <main id="contenido" tabindex="-1" class="pagina admin">
+    <p class="admin__estado" id="estado" role="status" aria-live="polite">Comprobando permisos…</p>
+
+    <div id="panel" hidden>
+      <div class="admin__cabeza">
+        <div>
+          <h1>Administrar disfraces</h1>
+          <p class="admin__resumen" id="resumen" aria-live="polite"></p>
+        </div>
+        <button class="boton" type="button" id="agregar">Agregar disfraz</button>
+      </div>
+
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <caption class="solo-lectores">Disfraces del concurso, publicados y eliminados</caption>
+          <thead>
+            <tr>
+              <th scope="col">Foto</th>
+              <th scope="col">Disfraz</th>
+              <th scope="col" class="tabla__numero">Votos</th>
+              <th scope="col">Estado</th>
+              <th scope="col"><span class="solo-lectores">Acciones</span></th>
+            </tr>
+          </thead>
+          <tbody id="filas"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <dialog class="dialogo" id="dialogo-disfraz" aria-labelledby="dialogo-titulo">
+    <form id="formulario" class="formulario" novalidate>
+      <h2 id="dialogo-titulo">Agregar disfraz</h2>
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" required minlength="2" maxlength="50" aria-describedby="contador-nombre error-nombre">
+        <p class="campo__ayuda campo__contador" id="contador-nombre"></p>
+        <p class="campo__error" id="error-nombre"></p>
+      </div>
+      <div class="campo">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required minlength="5" maxlength="500" aria-describedby="contador-descripcion error-descripcion"></textarea>
+        <p class="campo__ayuda campo__contador" id="contador-descripcion"></p>
+        <p class="campo__error" id="error-descripcion"></p>
+      </div>
+      <div class="campo campo--foto">
+        <img class="campo__miniatura" id="miniatura" alt="" hidden>
+        <div>
+          <label for="foto" id="etiqueta-foto">Foto <span class="campo__opcional">(opcional)</span></label>
+          <input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/gif,image/webp" aria-describedby="error-foto">
+          <label class="casilla" id="quitar-foto-caja" hidden><input type="checkbox" id="quitar-foto" name="quitar"> Quitar la foto actual</label>
+          <p class="campo__error" id="error-foto" aria-live="polite"></p>
+        </div>
+      </div>
+      <p class="formulario__error" role="alert"></p>
+      <div class="dialogo__botones">
+        <button class="boton boton--secundario" type="button" data-cerrar>Cancelar</button>
+        <button class="boton" type="submit" id="guardar">Agregar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dialogo dialogo--chico" id="dialogo-eliminar" aria-labelledby="eliminar-titulo">
+    <form method="dialog">
+      <h2 id="eliminar-titulo">¿Eliminar este disfraz?</h2>
+      <p id="eliminar-texto"></p>
+      <div class="dialogo__botones">
+        <button class="boton boton--secundario" value="cancelar">Cancelar</button>
+        <button class="boton boton--peligro" value="eliminar">Eliminar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>

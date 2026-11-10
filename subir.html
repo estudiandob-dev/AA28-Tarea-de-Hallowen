@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Subí tu disfraz | Concurso de disfraces de Halloween</title>
+  <link rel="icon" href="img/calabaza.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/subir.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="img/calabaza.svg" alt="" width="28" height="28">Concurso de disfraces</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="index.html">Disfraces</a>
+      <a href="subir.html" aria-current="page">Subí el tuyo</a>
+    </nav>
+    <div class="cuenta" id="cuenta"></div>
+  </header>
+
+  <main id="contenido" tabindex="-1" class="pagina pagina--doble">
+    <section class="panel" aria-labelledby="titulo">
+      <h1 id="titulo">Subí tu disfraz</h1>
+      <p class="panel__bajada">Aparece en el muro apenas lo publicás y cualquiera lo puede votar.</p>
+
+      <form id="formulario" class="formulario" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre del disfraz</label>
+          <input id="nombre" name="nombre" required minlength="2" maxlength="50" aria-describedby="contador-nombre error-nombre">
+          <p class="campo__ayuda campo__contador" id="contador-nombre"></p>
+          <p class="campo__error" id="error-nombre"></p>
+        </div>
+        <div class="campo">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="4" required minlength="5" maxlength="500" aria-describedby="contador-descripcion error-descripcion" placeholder="De qué está hecho, cuánto tardaste, algún detalle que no se ve en la foto."></textarea>
+          <p class="campo__ayuda campo__contador" id="contador-descripcion"></p>
+          <p class="campo__error" id="error-descripcion"></p>
+        </div>
+        <div class="campo">
+          <label for="foto">Foto <span class="campo__opcional">(opcional)</span></label>
+          <input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/gif,image/webp" aria-describedby="ayuda-foto error-foto">
+          <p class="campo__ayuda" id="ayuda-foto">JPG, PNG, GIF o WebP. Se achica sola para que pese menos de 64 KB.</p>
+          <p class="campo__error" id="error-foto" aria-live="polite"></p>
+        </div>
+        <p class="formulario__error" role="alert"></p>
+        <button class="boton" type="submit">Publicar disfraz</button>
+      </form>
+    </section>
+
+    <aside class="vista-previa" aria-labelledby="titulo-previa">
+      <h2 class="vista-previa__titulo" id="titulo-previa">Así se va a ver en el muro</h2>
+      <div id="previa"></div>
+      <p class="vista-previa__descripcion" id="previa-descripcion"></p>
+    </aside>
+  </main>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>

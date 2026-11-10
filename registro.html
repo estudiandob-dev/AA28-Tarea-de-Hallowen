@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Crear cuenta | Concurso de disfraces de Halloween</title>
+  <link rel="icon" href="img/calabaza.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/registro.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="img/calabaza.svg" alt="" width="28" height="28">Concurso de disfraces</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="index.html">Disfraces</a>
+      <a href="subir.html">Subí el tuyo</a>
+    </nav>
+    <div class="cuenta" id="cuenta"></div>
+  </header>
+
+  <main id="contenido" tabindex="-1" class="pagina pagina--angosta">
+    <section class="panel" aria-labelledby="titulo">
+      <h1 id="titulo">Crear cuenta</h1>
+      <p class="panel__bajada">Elegí un nombre de usuario y una contraseña. Con la cuenta podés votar y subir tu disfraz.</p>
+
+      <form id="formulario" class="formulario" novalidate>
+        <div class="campo">
+          <label for="nombre">Usuario</label>
+          <input id="nombre" name="nombre" autocomplete="username" required minlength="3" maxlength="30" aria-describedby="ayuda-nombre error-nombre" autocapitalize="none" spellcheck="false">
+          <p class="campo__ayuda" id="ayuda-nombre">Entre 3 y 30 letras, números, puntos o guiones, sin espacios.</p>
+          <p class="campo__error" id="error-nombre"></p>
+        </div>
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <input id="clave" name="clave" type="password" autocomplete="new-password" required minlength="8" maxlength="72" aria-describedby="ayuda-clave error-clave">
+          <p class="campo__ayuda" id="ayuda-clave">Al menos 8 caracteres.</p>
+          <p class="campo__error" id="error-clave"></p>
+        </div>
+        <div class="campo">
+          <label for="repetir">Repetí la contraseña</label>
+          <input id="repetir" name="repetir" type="password" autocomplete="new-password" required maxlength="72" aria-describedby="error-repetir">
+          <p class="campo__error" id="error-repetir"></p>
+        </div>
+        <p class="formulario__error" role="alert"></p>
+        <button class="boton" type="submit">Crear cuenta</button>
+      </form>
+
+      <p class="panel__alterna">¿Ya tenés cuenta? <a id="ir-login" href="login.html">Ingresá</a></p>
+    </section>
+  </main>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>

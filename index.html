@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Concurso de disfraces de Halloween</title>
+  <meta name="description" content="Votá tus disfraces de Halloween favoritos.">
+  <link rel="icon" href="img/calabaza.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/index.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="img/calabaza.svg" alt="" width="28" height="28">Concurso de disfraces</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="index.html" aria-current="page">Disfraces</a>
+      <a href="subir.html">Subí el tuyo</a>
+    </nav>
+    <div class="cuenta" id="cuenta"></div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <section class="portada" aria-labelledby="titulo">
+      <div class="portada__texto">
+        <h1 id="titulo">La noche de los disfraces</h1>
+        <p class="portada__bajada">Votá los disfraces que más te gusten. Podés votar una vez cada disfraz, y el que junte más votos se lleva la noche.</p>
+        <p><a class="boton" href="subir.html">Subí tu disfraz</a></p>
+      </div>
+      <div class="portada__lider" id="lider"></div>
+    </section>
+
+    <section class="muro" aria-labelledby="titulo-muro">
+      <h2 id="titulo-muro">Todos los disfraces</h2>
+      <p class="muro__estado" id="estado" role="status" aria-live="polite">Cargando disfraces…</p>
+      <ul class="muro__fotos" id="fotos" aria-busy="true"></ul>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Concurso de disfraces de Halloween. Hecho con PHP, MySQL y una API REST.</p>
+  </footer>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>
